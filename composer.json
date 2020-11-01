@@ -1,0 +1,27 @@
+{
+    "name": "jasonbenett/ddd",
+    "description": "Provide useful DDD classes in PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jason Benedetti",
+            "email": "jason.benedetti@live.fr"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ramsey/uuid": "^4.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "JasonBenett\\DDD\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "JasonBenett\\DDD\\Tests\\": "tests/"
+    }
+}
