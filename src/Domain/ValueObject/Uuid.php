@@ -26,6 +26,11 @@ class Uuid
         return $this->value->toString();
     }
 
+    public function getBytes(): string
+    {
+        return $this->value->getBytes();
+    }
+
     public function equals(self $uuid): bool
     {
         return $this->value->equals(RamseyUuid::fromString($uuid->getValue()));
