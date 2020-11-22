@@ -31,6 +31,14 @@ class Uuid
         return $this->value->getBytes();
     }
 
+    public static function fromBytes(string $bytes): self
+    {
+        $self = new self();
+        $self->value = RamseyUuid::fromBytes($bytes);
+
+        return $self;
+    }
+
     public function equals(self $uuid): bool
     {
         return $this->value->equals(RamseyUuid::fromString($uuid->getValue()));

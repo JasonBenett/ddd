@@ -40,7 +40,6 @@ class UuidTest extends TestCase
 
     /**
      * @covers ::equals
-     * @dataProvider valueProvider
      */
     public function testEquality(): void
     {
@@ -54,6 +53,9 @@ class UuidTest extends TestCase
         self::assertFalse($sut->equals($uuid2));
     }
 
+    /**
+     * @covers ::getBytes
+     */
     public function testGetBytes(): void
     {
         $relevantValue = '132779ae-c91b-440b-9452-e8b29d75b74a';
@@ -64,6 +66,19 @@ class UuidTest extends TestCase
 
         self::assertSame($uuid->getBytes(), $sut->getBytes());
         self::assertNotSame($uuid2->getBytes(), $sut->getBytes());
+    }
+
+    /**
+     * @covers ::fromBytes
+     */
+    public function testFromBytes(): void
+    {
+        $relevantValue = '132779ae-c91b-440b-9452-e8b29d75b74a';
+
+        $uuid = new Uuid($relevantValue);
+        $sut  = Uuid::fromBytes($uuid->getBytes());
+
+        self::assertSame($uuid->getValue(), $sut->getValue());
     }
 
     public function valueProvider(): array
