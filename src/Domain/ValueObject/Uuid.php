@@ -31,12 +31,12 @@ class Uuid
         return $this->value->getBytes();
     }
 
-    public static function fromBytes(string $bytes): self
+    public static function fromBytes(string $bytes): static
     {
-        $self = new self();
-        $self->value = RamseyUuid::fromBytes($bytes);
+        $uuid        = new static();
+        $uuid->value = RamseyUuid::fromBytes($bytes);
 
-        return $self;
+        return $uuid;
     }
 
     public function equals(self $uuid): bool
